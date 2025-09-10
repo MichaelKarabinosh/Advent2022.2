@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,15 +15,15 @@ public class Main {
                     score += 8;
                 }
                 if (fileData.get(i).endsWith("X")) {
-                    score += 2;
+                    score += 4;
                 }
                 if (fileData.get(i).endsWith("Z")) {
-                    score += 1;
+                    score += 3;
                 }
             }
             if (fileData.get(i).startsWith("B")) {
                 if (fileData.get(i).endsWith("Y")) {
-                    score += 4;
+                    score += 5;
                 }
                 if (fileData.get(i).endsWith("X")) {
                     score += 1;
@@ -44,6 +45,58 @@ public class Main {
             }
         }
         System.out.println("Part One: " + score);
+
+
+        score = 0;
+        for (int r= 0; r < fileData.size(); r++)
+        {
+            if (fileData.get(r).endsWith("Y"))
+            {
+                if (fileData.get(r).startsWith("C"))
+                {
+                    score += 6;
+                }
+                if (fileData.get(r).startsWith("B"))
+                {
+                    score += 5;
+                }
+                if (fileData.get(r).startsWith("A"))
+                {
+                    score += 4;
+                }
+            }
+            if (fileData.get(r).endsWith("X"))
+            {
+                if (fileData.get(r).startsWith("C"))
+                {
+                    score += 2;
+                }
+                if (fileData.get(r).startsWith("B"))
+                {
+                    score += 1;
+                }
+                if (fileData.get(r).startsWith("A"))
+                {
+                    score += 3;
+                }
+            }
+            if (fileData.get(r).endsWith("Z"))
+            {
+                if (fileData.get(r).startsWith("C"))
+                {
+                    score += 7;
+                }
+                if (fileData.get(r).startsWith("B"))
+                {
+                    score += 9;
+                }
+                if (fileData.get(r).startsWith("A"))
+                {
+                    score += 8;
+                }
+            }
+        }
+        System.out.println("Part Two: " + score);
         // you now have a list of Strings from the file "InputFile"
     }
 
